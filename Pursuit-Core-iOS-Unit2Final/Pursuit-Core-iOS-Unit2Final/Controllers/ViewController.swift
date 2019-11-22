@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var colors = [Crayon]() {
+    var colors = [Crayon](){
         didSet {
             tableView.reloadData()
         }
@@ -26,10 +26,11 @@ class ViewController: UIViewController {
   }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let DetailViewController = segue.destination as? DetailViewController else {
+        guard let DetailViewController = segue.destination as? DetailViewController, let _ = tableView.indexPathForSelectedRow else {
             return
         }
-        
+        let sendColors = Crayon(name: "color", red: 0.0, green: 0.0, blue: 0.0, hex: "hex")
+        DetailViewController.detailColors = sendColors
     }
     
     func loadData() {
@@ -52,6 +53,5 @@ extension ViewController: UITableViewDataSource {
         cell.backgroundColor = UIColor(red: CGFloat(currentColor.red/255), green: CGFloat(currentColor.green/255), blue: CGFloat(currentColor.blue/255), alpha: 1.0)
         return cell
     }
-    
     
 }

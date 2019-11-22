@@ -26,11 +26,10 @@ class ViewController: UIViewController {
   }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let DetailViewController = segue.destination as? DetailViewController, let _ = tableView.indexPathForSelectedRow else {
+        guard let DetailViewController = segue.destination as? DetailViewController, let indexPath = tableView.indexPathForSelectedRow else {
             return
         }
-        let sendColors = Crayon(name: "color", red: 0.0, green: 0.0, blue: 0.0, hex: "hex")
-        DetailViewController.detailColors = sendColors
+        DetailViewController.detailColors = colors[indexPath.row]
     }
     
     func loadData() {

@@ -30,7 +30,7 @@ class DetailViewController: UIViewController {
     }
     
     override func viewDidLoad() {
-        super.viewDidLoad() 
+        super.viewDidLoad()
         configureSlider()
         configureStepper()
     }
@@ -49,7 +49,8 @@ class DetailViewController: UIViewController {
     
     func configureStepper() {
         alphaStepper.minimumValue = 0
-        alphaStepper.minimumValue = 1.0
+        alphaStepper.maximumValue = 1.0
+        alphaStepper.value = 1.0
         alphaStepper.stepValue = 0.1
     }
     

@@ -90,12 +90,21 @@
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="bXe-ye-PxW">
                                 <rect key="frame" x="52" y="187" width="344" height="31"/>
+                                <connections>
+                                    <action selector="redSliderChanged:" destination="EBb-gi-TYs" eventType="valueChanged" id="Jva-yJ-Eer"/>
+                                </connections>
                             </slider>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="WUD-j3-Tdc">
                                 <rect key="frame" x="70" y="306" width="326" height="66"/>
+                                <connections>
+                                    <action selector="greenSliderChanged:" destination="EBb-gi-TYs" eventType="valueChanged" id="EwY-lC-ArY"/>
+                                </connections>
                             </slider>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="T65-ek-Flf">
                                 <rect key="frame" x="59" y="459.66666666666669" width="337" height="44.666666666666686"/>
+                                <connections>
+                                    <action selector="blueSliderChanged:" destination="EBb-gi-TYs" eventType="valueChanged" id="mq3-eF-6Nz"/>
+                                </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="alpha" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q8r-yF-6kS">
                                 <rect key="frame" x="177" y="549" width="42" height="21"/>
@@ -138,7 +147,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tba-Ny-grd">
-                                <rect key="frame" x="227" y="549" width="11" height="21"/>
+                                <rect key="frame" x="227" y="549" width="27" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -188,7 +197,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="RGB" id="7CJ-4V-lvT"/>
                     <connections>
-                        <outlet property="alphaLabel" destination="Q8r-yF-6kS" id="3jB-AK-six"/>
+                        <outlet property="alphaLabel" destination="tba-Ny-grd" id="Ceb-Xw-Zei"/>
                         <outlet property="alphaStepper" destination="znc-Fi-oLt" id="Rk6-Hf-Xjz"/>
                         <outlet property="blueLabel" destination="f2x-Av-qJG" id="qYe-3t-5H3"/>
                         <outlet property="blueSlider" destination="T65-ek-Flf" id="Wa0-UJ-ED8"/>

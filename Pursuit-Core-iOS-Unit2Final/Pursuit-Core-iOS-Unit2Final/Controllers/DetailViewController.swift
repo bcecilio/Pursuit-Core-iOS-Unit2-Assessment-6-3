@@ -42,23 +42,26 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor(red: CGFloat(detailColors.red/255), green: CGFloat(detailColors.green/255), blue: CGFloat(detailColors.blue/255), alpha: 1.0)
+        redSlider.value = Float(detailColors.red/255)
+        greenSlider.value = Float(detailColors.green/255)
+        blueSlider.value = Float(detailColors.blue/255)
+        redLabel.text = Float(CGFloat(redSlider.value)).description
+        greenLabel.text = Float(CGFloat(greenSlider.value)).description
+        blueLabel.text = Float(CGFloat(blueSlider.value)).description
         configureSlider()
         configureStepper()
-        redColor = Float(detailColors.red)
-        greenColor = Float(detailColors.green)
-        blueColor = Float(detailColors.blue)
     }
     
     func configureSlider() {
         redSlider.minimumValue = 0
-        redSlider.maximumValue = 255
-        redSlider.value = Float(detailColors.red)
+        redSlider.maximumValue = 1
+        redSlider.value = Float(detailColors.red/255)
         greenSlider.minimumValue = 0
-        greenSlider.maximumValue = 255
-        greenSlider.value = Float(detailColors.green)
+        greenSlider.maximumValue = 1
+        greenSlider.value = Float(detailColors.green/255)
         blueSlider.minimumValue = 0
-        blueSlider.maximumValue = 255
-        blueSlider.value = Float(detailColors.blue)
+        blueSlider.maximumValue = 1
+        blueSlider.value = Float(detailColors.blue/255)
     }
     
     func configureStepper() {
@@ -66,17 +69,44 @@ class DetailViewController: UIViewController {
         alphaStepper.maximumValue = 1.0
         alphaStepper.value = 1.0
         alphaStepper.stepValue = 0.1
+        redSlider.value = Float(detailColors.red/255)
+        greenSlider.value = Float(detailColors.green/255)
+        blueSlider.value = Float(detailColors.blue/255)
     }
     
     @IBAction func alphaStepper(_ sender: UIStepper) {
-        redSlider.value = Float(CGFloat(sender.value))
-        greenSlider.value = Float(CGFloat(sender.value))
-        blueSlider.value = Float(CGFloat(sender.value))
+        alphaLabel.text = Float(CGFloat(sender.value)).description
+        let backgroundColor = UIColor(red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: CGFloat(sender.value))
+        view.backgroundColor = backgroundColor
+    }
+    
+    @IBAction func redSliderChanged(_ sender: UISlider) {
+        redLabel.text = Float(CGFloat(sender.value)).description
+        let backgroundColor = UIColor(red: CGFloat(sender.value), green: CGFloat(greenSlider.value), blue: CGFloat(blueSlider.value), alpha: CGFloat(sender.value))
+        view.backgroundColor = backgroundColor
+    }
+    
+    @IBAction func greenSliderChanged(_ sender: UISlider) {
+        greenLabel.text = Float(CGFloat(sender.value)).description
+        let backgroundColor = UIColor(red: CGFloat(redSlider.value), green: CGFloat(sender.value), blue: CGFloat(blueSlider.value), alpha: CGFloat(sender.value))
+        view.backgroundColor = backgroundColor
+    }
+    
+    @IBAction func blueSliderChanged(_ sender: UISlider) {
+        blueLabel.text = Float(CGFloat(sender.value)).description
+        let backgroundColor = UIColor(red: CGFloat(redSlider.value), green: CGFloat(greenSlider.value), blue: CGFloat(sender.value), alpha: CGFloat(sender.value))
+        view.backgroundColor = backgroundColor
     }
     
     
     @IBAction func resetButtonPressed(_ sender: UIButton) {
-        
+        view.backgroundColor = UIColor(red: CGFloat(detailColors.red/255), green: CGFloat(detailColors.green/255), blue: CGFloat(detailColors.blue/255), alpha: 1.0)
+        redSlider.value = Float(detailColors.red/255)
+        greenSlider.value = Float(detailColors.green/255)
+        blueSlider.value = Float(detailColors.blue/255)
+        redLabel.text = Float(CGFloat(redSlider.value)).description
+        greenLabel.text = Float(CGFloat(greenSlider.value)).description
+        blueLabel.text = Float(CGFloat(blueSlider.value)).description
     }
     
 }

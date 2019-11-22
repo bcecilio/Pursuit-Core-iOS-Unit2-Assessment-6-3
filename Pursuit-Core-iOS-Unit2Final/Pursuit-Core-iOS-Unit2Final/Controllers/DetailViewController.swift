@@ -21,18 +21,32 @@ class DetailViewController: UIViewController {
     
     var detailColors: Crayon!
     
-    var selectedColor: Float = 0 {
+    var redColor: Float = 0 {
         didSet{
             redLabel.text = "\(redSlider.value)"
+        }
+    }
+    
+    var greenColor: Float = 0 {
+        didSet{
             greenLabel.text = "\(greenSlider.value)"
+        }
+    }
+    
+    var blueColor: Float = 0 {
+        didSet{
             blueLabel.text = "\(blueSlider.value)"
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = UIColor(red: CGFloat(detailColors.red/255), green: CGFloat(detailColors.green/255), blue: CGFloat(detailColors.blue/255), alpha: 1.0)
         configureSlider()
         configureStepper()
+        redColor = Float(detailColors.red)
+        greenColor = Float(detailColors.green)
+        blueColor = Float(detailColors.blue)
     }
     
     func configureSlider() {

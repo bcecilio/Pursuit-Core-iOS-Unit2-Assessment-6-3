@@ -41,6 +41,7 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = detailColors.name
         view.backgroundColor = UIColor(red: CGFloat(detailColors.red/255), green: CGFloat(detailColors.green/255), blue: CGFloat(detailColors.blue/255), alpha: 1.0)
         redSlider.value = Float(detailColors.red/255)
         greenSlider.value = Float(detailColors.green/255)
